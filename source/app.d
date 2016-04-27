@@ -20,7 +20,8 @@ void renderMd(HTTPServerRequest req, HTTPServerResponse res) {
     // res.writeBody(filterMarkdown(readFileUTF8(file)), content_type);
   } else {
     res.statusCode = 404;
-    res.writeBody("<h1>404!: %s could not be found</h1>".format(file), content_type);
+    res.render!("missing.dt");
+    // res.writeBody(`<h1 class="text-center">404!: %s could not be found</h1>`.format(file), content_type);
   }
 }
 

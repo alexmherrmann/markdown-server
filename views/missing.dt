@@ -1,0 +1,14 @@
+doctype 5
+html
+  head
+    title Whoops, couldn't find that
+    include bootstrap
+  
+  body
+    div.container.text-center
+      h1 couldn't find that...
+      h4 It seems as if that couldn't be found
+        a(href="/") try here
+        | to see all available files
+    
+    
