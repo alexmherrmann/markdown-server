@@ -1,0 +1,13 @@
+doctype 5
+
+html
+  head
+    title All files available to read
+    include bootstrap
+  body.container
+    h1.text-center #{infos.length} files available:
+    ul
+      - foreach(a ; infos)
+        li
+          a(href="/md/!{a.name}") #{a.name}
+        

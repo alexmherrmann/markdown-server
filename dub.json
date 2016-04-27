@@ -1,0 +1,10 @@
+{
+  "name": "markdown-server",
+  "description": "A D markdown server with the ability to list pages, and take custom styling. Could be useful to expand into a blog or something",
+  "copyright": "Copyright © 2016, Alex Herrmann",
+  "authors": ["Alex Herrmann"],
+  "dependencies": {
+    "vibe-d": "~>0.7.28"
+  },
+  "versions": ["VibeDefaultMain"]
+}

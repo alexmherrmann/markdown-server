@@ -1,0 +1,8 @@
+doctype 5
+- auto pagename=docparam;
+html
+  head
+    title= pagename
+    include bootstrap
+  body.container
+    div.root!= content 
