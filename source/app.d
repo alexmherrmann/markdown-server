@@ -5,11 +5,19 @@ import std.algorithm;
 import vibe.d;
 immutable string content_type = "text/html; charset=UTF-8";
 
+void return404(ref HTTPServerResponse res) {
+    res.statusCode = 404;
+    res.render!("missing.dt");
+}
 void renderMd(HTTPServerRequest req, HTTPServerResponse res) {
   string docparam = req.params["doc"];
 
+  string file;
   // HACK: How fast is this?
-  string file = "files/" ~ (docparam[$-3..$] == ".md" ? docparam : docparam ~ ".md");
+  if(docparam.length <= 3)
+    file = docparam ~ ".md";
+  else
+    file = "files/" ~ (docparam[$-3..$] == ".md" ? docparam : docparam ~ ".md");
   logInfo("looking for: %s", file);
   // Good to render it!
   //TODO: switch all functions to vibe.d functions
@@ -19,8 +27,7 @@ void renderMd(HTTPServerRequest req, HTTPServerResponse res) {
     res.render!("markdownview.dt", docparam, content);
     // res.writeBody(filterMarkdown(readFileUTF8(file)), content_type);
   } else {
-    res.statusCode = 404;
-    res.render!("missing.dt");
+    return404(res);
     // res.writeBody(`<h1 class="text-center">404!: %s could not be found</h1>`.format(file), content_type);
   }
 }
