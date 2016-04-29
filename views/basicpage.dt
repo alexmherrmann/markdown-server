@@ -5,9 +5,8 @@ html
     title All files available to read
     include bootstrap
   body.container
-    h1.text-center #{infos.length} files available:
-    ul
+    h2.text-center #{infos.length} files available:
+    ul.mainlist
       - foreach(a ; infos)
         li
           a(href="/md/!{a.name}") #{a.name}
-        

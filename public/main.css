@@ -1,0 +1,7 @@
+.mainlist {
+  list-style-type: none;
+}
+
+.mainlist * {
+    font-size: 145%;
+}
