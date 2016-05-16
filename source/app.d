@@ -15,6 +15,8 @@ void showMainPage(HTTPServerRequest req, HTTPServerResponse res) {
   listDirectory("files", (FileInfo info) {infos ~= info; return true; });
   logInfo("have [%3d] files", infos.length);
   res.render!("basicpage.dt", infos);
+
+
 }
 
 static this()  {
@@ -26,4 +28,8 @@ static this()  {
   settings.port = 8081;
   settings.bindAddresses = ["::1", "127.0.0.1"];
   listenHTTP(settings, router);
+}
+
+version(unittest) {
+  void main() {}
 }
